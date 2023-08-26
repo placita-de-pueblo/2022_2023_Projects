@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang = "sp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="main.css"/>
+</head>
+
+<body>
+    <main class="app">
+        
+        <section class="greeting">
+            <h2 class="name">
+                Holaaa, <input type="text" id="name" placeholder="Name here">
+            </h2>
+        </section>
+
+        <section class="create-ToDo">
+            <h3 class="create-ToDo"> </h3>
+                <form id="new-ToDo-form">
+                    <h4>¿Qué hay que hacer hoy?</h4>
+                    <input type="text" name="content" id="content"/>
+                    
+                    <h4>¿Para qué?</h4>
+                    
+                    <div class="options">
+                        <label>
+                            <input 
+                            type="radio" 
+                            name="category" 
+                            id="category1" 
+                            value="colegio" />
+                           <span class="bubble colegio"></span>
+                           <div>Colegio</div> 
+                        </label>
+
+                        <label>
+                            <input 
+                            type="radio" 
+                            name="category" 
+                            id="category2" 
+                            value="deporte" />
+                           <span class="bubble deporte"></span>
+                           <div>Deporte</div> 
+                        </label>
+
+                        <label>
+                            <input 
+                            type="radio" 
+                            name="category" 
+                            id="category3" 
+                            value="citas" />
+                           <span class="bubble citas"></span>
+                           <div>Citas</div> 
+                        </label>
+
+                        <label>
+                            <input 
+                            type="radio" 
+                            name="category" 
+                            id="category4" 
+                            value="examen" />
+                           <span class="bubble examen"></span>
+                           <div>Examen</div> 
+                        </label>
+
+                        <label>
+                            <input 
+                            type="radio" 
+                            name="category" 
+                            id="category5" 
+                            value="familia" />
+                           <span class="bubble familia"></span>
+                           <div>Familia</div> 
+                        </label>
+
+                        <label>
+                            <input 
+                            type="radio" 
+                            name="category" 
+                            id="category6" 
+                            value="otros" />
+                           <span class="bubble otros"></span>
+                           <div>Otros</div> 
+                        </label>
+
+                    </div>
+                
+                    <input type="submit" value="Add-ToDo">  
+                </form>
+        </section>
+
+        <section class="ToDo-List">
+            <h3>ToDo List</h3>
+
+            <div class="list" id="ToDo-List">
+                <!--
+                <div class="ToDo-Item done">
+                    <label>
+                        <input type="checkbox" />
+                        <span class="bubble examen"></span>
+                    </label>
+
+                    <div class="ToDo-Content">
+                            <input type="text" value="Buenoasssss" readonly />
+                    </div>
+
+                    <div class="actions">
+                    <button class="edit">Editar</button>
+                    <button class="delete">Eliminar</button>
+                    </div>
+
+                </div>
+
+                <div class="ToDo-Item">
+                    <label>
+                        <input type="checkbox" />
+                        <span class="bubble colegio"></span>
+                    </label>
+
+                    <div class="ToDo-Content">
+                            <input type="text" value="Holissss" readonly />
+                    </div>
+                    <div class="actions">
+                    <button class="edit">Editar</button>
+                    <button class="delete">Eliminar</button>
+                    </div>
+
+                </div>
+                -->
+            </div>
+        </section>
+
+    </main>
+    
+    
+    <script src="main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,287 @@
+
+/*Guardamos las variables con números largos para usarlas luego */
+:root {
+    --Colegio: #fad9a5;
+    --Deporte: #b2a5fa;
+    --Citas: #edfaa5;
+    --Examen: #f8c0fb;
+    --Familia: #d8fac0;
+    --Otros: #e2c0fa;
+    --light: #EEE;
+    --grey: #888;
+    --dark: #313154;
+    --danger: #ff5b57;
+    --primary: #9690e7;
+
+    /*rgba determina el color rgb y su opacidad 0 es transparente y 1 es opaco completamente */
+    --shadow: 0 1px 3px rgba(0,0,0,0.1);
+
+    --Colegio-glow: 0px 0px 4px rgba(250, 217, 165,0.75);
+    --Deporte-glow: 0px 0px 4px rgba(178, 165, 250, 0.75);
+    --Citas-glow: 0px 0px 4px rgba(237, 250, 165, 0.75);
+    --Examen-glow: 0px 0px 4px rgba(248, 192, 251, 0.75);
+    --Familia-glow: 0px 0px 4px rgba(216, 250, 192, 0.75);
+    --Otros-glow: 0px 0px 4px rgba(226, 192, 250, 0.75);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+/*für alle inputs die kein radio type sind soll das Folgende gelten */
+
+input:not([type="radio"]):not([type="checkbox"]), button{
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: initial;
+}
+
+body {
+    background: var(--light);
+    color: var(--dark);
+}
+
+section {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+h3 {
+    color: var(--dark);
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+}
+
+h4 {
+    color: var(--grey);
+    font-size: 0.875rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.greeting .title {
+    display: flex;
+}
+
+.greeting .title input {
+    margin-left: 0.5rem;
+    flex: 1 1 0%;
+    min-width: 0;
+}
+
+/* So funktioniert es für beide :) */
+
+.greeting .title,
+.greeting .title input {
+    color: var(--dark);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.create-ToDo input[type="text"]{
+    display: block;
+    width: 100%;
+    font-size: 1.125rem;
+    padding: 1rem 1.5rem;
+    color: var(--dark);
+    background-color: #FFF;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 1.5rem;
+}
+
+.create-ToDo .options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.create-ToDo .options label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background-color: #FFF;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+}
+
+input[type=radio],
+input[type="checkbox"]{
+    display: none;
+}
+
+.bubble {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--Colegio);
+    box-shadow: var(--Colegio-glow);
+}
+
+.bubble.deporte{
+    border: 2px solid var(--Deporte);
+    box-shadow: var(--Deporte-glow);
+}
+
+.bubble.citas{
+    border: 2px solid var(--Citas);
+    box-shadow: var(--Citas-glow);
+}
+
+.bubble.examen{
+    border: 2px solid var(--Examen);
+    box-shadow: var(--Examen-glow);
+}
+
+.bubble.familia{
+    border: 2px solid var(--Familia);
+    box-shadow: var(--Familia-glow);
+}
+
+.bubble.otros{
+    border: 2px solid var(--Otros);
+    box-shadow: var(--Otros-glow);
+}
+
+.bubble::after {
+    content: "";
+    display: block;
+    opacity: 0;
+    width: 0px;
+    height: 0px;
+    background-color: var(--Colegio);
+    box-shadow: var(--Colegio-glow);
+    border-radius: 50%;
+    transition: 0.2s ease-in-out;
+}
+
+.bubble.deporte::after {
+    background-color: var(--Deporte);
+    box-shadow: var(--Deporte-glow);
+}
+
+.bubble.familia::after {
+    background-color: var(--Familia);
+    box-shadow: var(--Familia-glow);
+}
+
+.bubble.examen::after {
+    background-color: var(--Examen);
+    box-shadow: var(--Examen-glow);
+}
+
+.bubble.Citas::after {
+    background-color: var(--Citas);
+    box-shadow: var(--Citas-glow);
+}
+
+.bubble.otros::after {
+    background-color: var(--Otros);
+    box-shadow: var(--Otros-glow);
+}
+
+/*~ bedeutet neben also wenn ein Element input:checked neben einem Kreis ist soll es nachdem es angeglickt wurde "voll" werden.*/
+input:checked ~ .bubble::after {
+    width: 10px;
+    height: 10px;
+    opacity: 1;
+}
+
+.create-ToDo .options label div {
+    color: var(--dark);
+    font-size: 1.125rem;
+    margin-top: 1rem;
+}
+
+.create-ToDo input[type="submit"] {
+    display: block;
+    width: 100%;
+    font-size: 1.125rem;
+    padding: 1rem 1.5rem;
+    color: #FFF;
+    background-color: var(--primary);
+    border-radius: 0.5rem;
+    box-shadow: var(--Colegio-glow);
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.create-ToDo input[type="submit"]:hover {
+    opacity: 0.75rem;
+}
+
+.ToDo-List .list {
+    margin: 1rem 0;
+}
+
+.ToDo-List .ToDo-Item {
+    display: flex;
+    align-items: center;
+    background-color: #FFF;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 1rem;
+}
+
+.ToDo-Item label {
+    display: block;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+.ToDo-Item .ToDo-Content{
+    flex: 1 1 0%;
+}
+
+.ToDo-Item .ToDo-Content input {
+    color: var(--dark);
+    font-size: 1.125rem;
+}
+
+.ToDo-Item .actions {
+    display: flex;
+    align-items: center;
+}
+
+.ToDo-Item .actions button {
+    display: block;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    color: #FFF;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.ToDo-Item .actions button:hover {
+    opacity: 0.75;
+}
+
+.ToDo-Item .actions .edit {
+    margin-right: 0.5rem;
+    background-color: var(--primary);
+}
+
+.ToDo-Item .actions .delete {
+    background-color: var(--danger);
+}
+
+.ToDo-Item.done .ToDo-Content input {
+    text-decoration: line-through;
+    color: var(--grey);
+}

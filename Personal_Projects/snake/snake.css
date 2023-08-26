@@ -1,0 +1,29 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+.container {
+    height: 90px;
+    position: relative;
+}
+  
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#restart {
+    background-color: rgb(250, 217, 165);
+    border-radius: 15px;
+    width: 135px;
+    height: 75px;
+}
+
+#restart:hover{
+    background-color: rgb(231, 201, 153);
+}

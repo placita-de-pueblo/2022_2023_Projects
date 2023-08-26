@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang "de">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Taschenrechner</title>
+	
+		<style>
+		*{
+			font-family: sans-serif;
+		}
+		
+		body {
+			display: grid;
+			place-items: center;
+			min-height: 100vh;
+			margin: 0px;
+			background-color: rgb(255,217,161);
+		}
+		
+		#taschenrechner {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 0.5rem;
+		}
+		
+		#anzeige{
+			grid-column: span 4;
+			border: 1px solid rgb(126, 101, 66);
+			border-radius: 0.5em;
+			padding: 0.5em;
+			text-align: end;
+			display: flex;
+			flex-direction: column;
+			gap: 0.5em;
+		}
+		
+		
+		#eingabefeld {
+			font-size: 2rem;
+			background-color: transparent;
+			border: none;
+			text-align: inherit;
+		}
+		
+		#eingabefeld:focus-visible{
+			outline: none;
+		}
+		
+		#anzeige:focus-within{
+			outline: 1px solid rgb(126, 101, 66);
+		}
+		
+		#entfernen-Knopf{
+			grid-column: span 2;
+		
+		}
+		.taste{
+			border: none;
+			font-size: 1.2 rem;
+			padding: 1em 2em;
+			border-radius: 0.25em;
+			cursor: pointer;
+			transition: background-color 0.5s;
+		}
+		
+		.taste:hover{
+			background-color: rgb(221, 221, 221);
+		}
+		</style>
+		
+		<script>
+		function ZahlSchreiben(event) {
+			let Zeichen = event.target;
+			let Anzeige = document.getElementById('eingabefeld').value;
+			Anzeige=Anzeige+Zeichen.innerHTML;
+			document.getElementById('eingabefeld').value = Anzeige;
+			return false;
+		}
+		
+		function Entfernen(){
+			let Anzeige = document.getElementById('eingabefeld').value;
+			Anzeige = "";
+			document.getElementById('eingabefeld').value = Anzeige;
+			return false;
+		}
+		
+		function Ergebnis(){
+			let Anzeige = document.getElementById('eingabefeld').value;
+
+			Anzeige = eval(Anzeige);
+			document.getElementById('eingabefeld').value = Anzeige;
+			return false;
+		}
+		</script>
+	
+	</head>
+	
+	
+	<body>
+		<div id="taschenrechner">
+		
+			<!--Eingabefeld mit letzter rechnung+eingabefeld-->
+			<div id="anzeige">
+				<input type="text" value="" id="eingabefeld"/>
+			</div>
+			
+			<!--Knöpfe in der Reihenfolge wie sie auftachen sollen-->
+			<button class="taste" onclick="ZahlSchreiben(event); return false;"> (</button>
+			<button class="taste" onclick="ZahlSchreiben(event); return false;">) </button>
+			<button class="taste" id="entfernen-Knopf" onclick="Entfernen(); return false;">ENTF</button>
+			<button class="taste" onclick="ZahlSchreiben(event); return false;">7</button>
+			<button class="taste" onclick="ZahlSchreiben(event); return false;">8</button>
+			<button class="taste" onclick="ZahlSchreiben(event); return false;">9</button>
+			<button class="taste" onclick="ZahlSchreiben(event); return false;"> / </button>
+			<button class="taste" onclick="ZahlSchreiben(event); return false;">4</button>
+			<button class="taste" onclick="ZahlSchreiben(event); return false;">5</button>
+			<button class="taste" onclick="ZahlSchreiben(event); return false;">6</button>
+			<button class="taste" onclick="ZahlSchreiben(event); return false;"> * </button>
+			<button class="taste" onclick="ZahlSchreiben(event); return false;">1</button>
+			<button class="taste" onclick="ZahlSchreiben(event); return false;">2</button>
+			<button class="taste" onclick="ZahlSchreiben(event); return false;">3</button>
+			<button class="taste" onclick="ZahlSchreiben(event); return false;"> - </button>
+			<button class="taste" onclick="ZahlSchreiben(event); return false;">0</button>
+			<button class="taste" onclick="ZahlSchreiben(event); return false;">.</button>
+			<button class="taste" onclick="ZahlSchreiben(event); return false;"> + </button>
+			
+			<button class="taste" id="rechnen-Knopf" onclick="Ergebnis(); return false;">=</button>
+			
+		</div>
+	
+	</body>
+</html>
